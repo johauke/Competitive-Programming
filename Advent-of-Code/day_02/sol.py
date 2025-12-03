@@ -26,7 +26,7 @@ def task_2():
         for e in range(l, r + 1):
             e = str(e)
             s = len(e)
-            for i in range(1, s):
+            for i in range(1, s // 2 + 1):
                 if s % i != 0:
                     continue
                 for j in range(0, s - i, i):
@@ -38,5 +38,6 @@ def task_2():
     return count
 
 
-print(task_1())
-print(task_2())
+print(f"Solution task 1: {task_1()}")
+print(f"Solution task 2: {task_2()}")
+f.close()
