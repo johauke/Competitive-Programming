@@ -1,4 +1,3 @@
-from itertools import zip_longest
 f = open("input.txt")
 sample = f.read().splitlines()
 
