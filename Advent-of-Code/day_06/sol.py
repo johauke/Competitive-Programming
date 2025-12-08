@@ -4,6 +4,7 @@ sample = f.read().splitlines()
 operations = sample[-1].split()
 sample.pop()
 
+
 def task_1():
     table = []
     for line in sample:

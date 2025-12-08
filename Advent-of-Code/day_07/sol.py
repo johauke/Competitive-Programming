@@ -1,6 +1,8 @@
 from functools import cache
+
 f = open("input.txt")
 sample = f.read().splitlines()
+
 
 def find_start():
     start = 0
@@ -10,6 +12,7 @@ def find_start():
             break
     return start
 
+
 def task_1():
     count = 0
     searching = {find_start()}
@@ -17,8 +20,8 @@ def task_1():
     for line in sample[2::2]:
         for s in searching:
             if line[s] == "^":
-                toSearch.add(s-1)
-                toSearch.add(s+1)
+                toSearch.add(s - 1)
+                toSearch.add(s + 1)
                 count += 1
             else:
                 toSearch.add(s)
@@ -27,16 +30,17 @@ def task_1():
 
     return count
 
+
 def task_2():
     @cache
     def rec(row, col):
-        if row >= len(sample)-1:
+        if row >= len(sample) - 1:
             return 1
 
         if sample[row][col] == "^":
-            return rec(row+2, col-1) + rec(row+2, col+1)
+            return rec(row + 2, col - 1) + rec(row + 2, col + 1)
 
-        return rec(row+2, col)
+        return rec(row + 2, col)
 
     return rec(2, find_start())
 
